@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI의 정서적 위로 가능성 연구 보고서 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom CSS for general styling and chart container */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter, a common sans-serif font */
+            background-color: #F4F7F9; /* Light Background */
+            color: #263238; /* Dark Text */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .card {
+            background-color: #FFFFFF; /* Card Background */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            color: #2A62B6; /* Primary Blue */
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .subsection-title {
+            color: #2A62B6; /* Primary Blue */
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 1rem;
+        }
+        .chart-container {
+            position: relative; /* Required for Chart.js responsiveness */
+            width: 100%;
+            max-width: 600px; /* Adjusted max-width for better chart display */
+            height: 300px; /* Fixed height for consistency */
+            margin: 0 auto; /* Center the chart */
+            padding: 1rem; /* Padding inside the container */
+            background-color: #FFFFFF; /* Chart background */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* subtle shadow */
+            margin-bottom: 1.5rem;
+        }
+        /* Responsive adjustments for chart container height */
+        @media (min-width: 768px) { /* md breakpoint */
+            .chart-container {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom tooltip styling for Chart.js */
+        .chartjs-tooltip {
+            opacity: 1;
+            position: absolute;
+            background: rgba(0, 0, 0, .7);
+            color: white;
+            border-radius: 3px;
+            -webkit-transition: all .1s ease;
+            transition: all .1s ease;
+            pointer-events: none;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+        .chartjs-tooltip-key {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-[#2A62B6] mb-2">생성형 AI의 정서적 위로 가능성 연구 보고서</h1>
+        <p class="text-xl text-[#263238] mb-4">AI와의 정서적 교감 경험 분석: 외로움과 정서적 고통 위로 가능성 탐구</p>
+        <div class="text-md text-[#A9A9A9]">
+            <p>작성일: 2025년 5월</p>
+            <p>미림마이스터고 1학년 2반 3조</p>
+            <p>하정원 (1217), 김민채 (1201), 정두영 (1214), 이담현 (1207)</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="motivation-purpose" class="card">
+            <h2 class="section-title">1. 조사 동기와 목적</h2>
+            <p class="text-lg mb-4">
+                최근 생성형 AI는 텍스트 생성, 이미지 창작, 대화형 인터페이스 등 다양한 분야에서 빠르게 발전하며 일상생활에 깊게 침투하고 있다. 이러한 AI는 교육, 의료, 예술뿐만 아니라 심리 상담 분야에서도 그 잠재력을 실질적으로 입증하고 있다.
+            </p>
+            <p class="text-lg mb-4">
+                특히 팬데믹 이후 사회적 고립과 외로움을 경험하는 인구가 증가하며, 기존의 전통적인 심리 상담이 가진 시간 및 공간의 제약을 극복할 대안적 정서 지원 도구로서 AI의 가능성이 부각되었다. 이에 ‘AI가 사람의 외로움과 정서적 고통을 위로할 수 있는가?’라는 질문은 단순한 기술적 호기심을 넘어 사회적·윤리적 탐구의 중요한 이슈로 자리매김하였다.
+            </p>
+            <p class="text-lg font-semibold text-[#2A62B6]">본 연구의 주요 질문:</p>
+            <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                <li>사람들이 어떤 상황에서 AI와 정서적 교류를 시도하는가?</li>
+                <li>AI의 어떠한 대화 방식 및 표현이 위로로 작용하는가?</li>
+                <li>AI와의 교류가 개인의 정서 상태에 어떠한 영향을 미치는가?</li>
+            </ul>
+            <p class="text-lg mt-4">
+                이를 통해 생성형 AI가 실질적인 정서 지원 도구로서 기능할 수 있는지 여부와 기술적·심리적·윤리적 한계를 면밀히 분석한다. 또한, AI 기반 정서 지원 서비스 확산 시 발생할 수 있는 개인정보 보호, 사용자 의존성, 정보 신뢰성 문제 등 윤리적 쟁점도 심층적으로 고찰하여 건강한 기술 발전을 위한 사회적 기준을 제시하고자 한다.
+            </p>
+        </section>
+
+        <section id="research-plan" class="card">
+            <h2 class="section-title">2. 조사 계획</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h3 class="subsection-title mb-2">조사 기간</h3>
+                    <p class="text-lg">2025년 5월 12일 ~ 5월 16일</p>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h3 class="subsection-title mb-2">조사 방법</h3>
+                    <p class="text-lg">설문조사 (17명)</p>
+                    <p class="text-lg">인터뷰 조사 (2명)</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title mb-4">설문조사 (A)</h3>
+            <p class="text-lg mb-4">
+                미림마이스터고 뉴미디어 소프트웨어과 1학년 2반 학생 17명을 대상으로 설문조사를 진행하였다.
+            </p>
+
+            <div class="chart-container">
+                <canvas id="chartExperience"></canvas>
+            </div>
+            <p class="text-center text-md text-[#A9A9A9] mb-8">
+                그림 1. AI에게 위로를 받아본 경험 유무
+            </p>
+
+            <div class="chart-container">
+                <canvas id="chartWillingness"></canvas>
+            </div>
+            <p class="text-center text-md text-[#A9A9A9] mb-8">
+                그림 2. AI에게 위로를 구하거나 도움을 받는 것을 고려해 볼 의향
+            </p>
+
+            <div class="chart-container">
+                <canvas id="chartReasons"></canvas>
+            </div>
+            <p class="text-center text-md text-[#A9A9A9] mb-8">
+                그림 3. 사람 대신 AI에게 고민을 이야기하는 이유 (복수 응답)
+            </p>
+
+            <h3 class="subsection-title mb-4">인터뷰 조사 (B)</h3>
+            <p class="text-lg mb-4">
+                이현민, 홍재나 학생을 대상으로 AI에게 위로를 받은 경험 유무와 AI 위로 가능성에 대한 인식, 사용한 AI 종류, 감정적인 대화 후 기분 변화 등을 조사하였다.
+            </p>
+        </section>
+
+        <section id="research-results" class="card">
+            <h2 class="section-title">3. 조사 결과</h2>
+            <p class="text-lg mb-6">
+                (미림마이스터고등학교 1학년 2반 17명을 대상으로 진행되었다.)
+            </p>
+
+            <h3 class="subsection-title mb-4">가. 설문 조사 결과 요약</h3>
+            <div class="space-y-6 mb-8">
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">AI 위로 경험 (그림 1 관련)</h4>
+                    <p class="text-lg">
+                        AI에게 위로를 받았다고 느낀 응답자는 총 41.2%였다. 위로를 받지 못했다고 응답한 비율은 29.4%로, 위로를 받았다고 응답한 비율보다 적었다. 나머지 29.4%는 '보통이다'로 응답하였으며, 이는 AI에게 위로를 받았으나 만족스럽지 못했거나 애매한 경험으로 해석할 수 있다. 종합하면 AI에게 위로를 받아본 경험이 있는 사람은 약 70%에 달하며, 그 중 약 40%가 위로를 느꼈다.
+                    </p>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">AI에게 고민을 이야기할 의향 (그림 2 관련)</h4>
+                    <p class="text-lg">
+                        고민이 생겼을 때 사람 대신 AI를 사용할 의향이 있는가에 대한 설문에서는 부정적 여론이 총 58.9%로, 긍정적 여론 29.4%보다 약 2배 많았다. 부정적으로 생각하는 응답자들은 공통적으로 "AI의 말에 감정이 느껴지지 않아 공감을 못 해주는 것이 보이고, 겉으로만 위로하는 것처럼 보인다"고 언급하였다. 긍정적 응답자들은 "AI는 학습하기에 대화를 하면 할수록 위로를 더 잘하게 되고, 언제 어디서든 할 수 있다는 점이 장점이다"고 말하였다. 이는 AI 위로 경험은 존재하나 그 경험이 만족스럽지 못한 사람들이 대부분임을 시사한다.
+                    </p>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">AI에게 고민을 이야기하는 이유 (그림 3 관련)</h4>
+                    <p class="text-lg">
+                        AI에게 위로를 받을 때의 장점이 무엇이냐는 설문에서 대부분의 응답자들은 "편해서"라고 답하였다. 구체적으로는 위로가 필요한 순간에 언제 어디서든 즉시 위로를 받을 수 있다는 점이 사람에게 위로를 받을 때와 비교되는 차별적인 장점으로 나타났다. 또한, "무슨 말을 하든 비난하지 않기에 위로받는 데 부담이 없다"는 답변도 공통적으로 나왔다. 이는 AI가 사용자가 원하는 답변만을 제공하기에 도출된 결과이다. 종합하면, AI와의 대화는 질은 떨어지나 언제 어디서든 부담 없이 위로를 받을 수 있다는 점이 가장 큰 장점으로 인식되었다.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title mb-4">나. 인터뷰 결과 요약</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">인터뷰 인물: 홍재나</h4>
+                    <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                        <li>면접 탈락 시 AI에게 위로를 받은 경험이 있다.</li>
+                        <li>친구들에게 말할 용기가 없었을 때 AI의 존재가 도움이 되었다.</li>
+                        <li>AI의 말에 감정은 느껴지지 않았으나, 자신만을 위한 말이라는 점에서 위로가 되었다고 증언하였다.</li>
+                        <li>AI가 데이터를 바탕으로 위로를 제공하여 동질감을 느꼈다고 언급하였다.</li>
+                        <li>하지만 사람과 AI 중 위로 대상을 선택한다면 사람을 택하겠다고 말하였다. AI는 감정 자체가 없고 겉으로만 위로하는 것처럼 느껴지는 것이 주된 이유라고 설명하였다.</li>
+                        <li>감정은 심오한 개념이기에 AI가 아직 따라하기에는 이르다고 보았다.</li>
+                    </ul>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">인터뷰 인물: 이현민</h4>
+                    <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                        <li>생성형 AI에게 위로를 받고 싶은 마음은 있으나, 굳이 받을 필요는 없다는 입장이다.</li>
+                        <li>AI는 해당 인물에 대한 데이터가 쌓이기 전까지 보편적인 방법으로 위로를 제공하여, 감성적인 사람들에게는 크게 와닿지 않을 확률이 크다고 강조하였다.</li>
+                        <li>AI는 단순 텍스트로만 위로를 제공하여 몸짓과 억양을 통해 위로하는 사람과 달리 위로가 더욱 와닿지 않는다고 언급하였다.</li>
+                        <li>AI가 학습에는 사람보다 도움이 된다고 확답하였다. 방대한 데이터, 눈치 볼 필요 없음, 정확한 답변 제공이 그 이유이다.</li>
+                        <li>글쓰기 등 여러 방면에서 AI를 참고하는 정도로 활용하면 더 많은 상황에서 유용할 것이라고 생각하였다.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion-suggestions" class="card">
+            <h2 class="section-title">4. 결론 및 제언</h2>
+            <h3 class="subsection-title mb-4">가. 조사 결과 종합 및 주요 발견점</h3>
+            <div class="space-y-6 mb-8">
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">AI 위로 경험은 70%에 달하나, 만족도는 절반 이하이다.</h4>
+                    <p class="text-lg">
+                        응답자의 약 70%가 AI에게 위로를 받은 경험이 있다고 응답했으나, 이 중 진심으로 위로받았다고 느낀 응답자는 절반 이하였다. 이는 AI가 일상적인 정서적 교류의 도구로 자리 잡았음을 보여주지만, 인간의 깊은 정서적 요구를 충족시키는 데는 아직 한계가 있음을 시사한다.
+                    </p>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">실용적 장점이 부각되었다.</h4>
+                    <p class="text-lg">
+                        AI의 가장 큰 장점은 ‘부담 없음’, ‘비난 없음’ 등으로 나타났다. 이러한 특성은 인간관계에서 발생할 수 있는 심리적 장벽 없이 즉각적인 소통이 필요한 상황에서 AI가 효과적인 대안이 될 수 있음을 보여준다.
+                    </p>
+                </div>
+                <div class="bg-[#E0F2FE] p-6 rounded-xl shadow-sm">
+                    <h4 class="font-semibold text-xl text-[#2A62B6] mb-2">AI의 한계는 감정의 진정성 부족과 공감 부족으로 요약된다.</h4>
+                    <p class="text-lg">
+                        응답자들은 AI의 ‘감정 부재’를 공통적인 한계로 지적했으나, 일부는 AI의 ‘따뜻한 말투’에서 위로를 느끼기도 했다. 이는 AI가 제공하는 정서적 지지의 질이 사용자 개인의 기대치와 인식에 따라 상이하며, AI가 아직까지 인간 수준의 미묘한 감정적 공감을 제공하기는 어렵다는 점을 명확히 보여준다.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title mb-4">나. 조사를 통해 새롭게 알게 된 점 및 느낀 점</h3>
+            <p class="text-lg mb-4">
+                이 결과는 AI가 감정적인 교감에는 한계를 가지지만, 실용적인 도구로서의 가능성은 충분하다는 점을 보여준다. 특히 사회적 고립이나 익명성이 중요한 상황에서는 유용할 수 있다. 사람마다 위로를 느끼는 방식이 다르기 때문에, AI의 역할을 무시하기보다는 보완적인 수단으로 인식할 필요가 있다.
+            </p>
+
+            <h3 class="subsection-title mb-4">다. 제언 (우리의 다짐)</h3>
+            <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                <li>기술 개발자들은 AI가 단순히 정보 전달을 넘어 감정 표현의 정교함을 갖추도록 연구를 지속해야 한다.</li>
+                <li>우리는 앞으로 AI가 가진 장점을 현명하게 활용하고, 감정의 소중함을 아는 사람이 되기를 다짐한다.</li>
+            </ul>
+        </section>
+
+        <section id="references" class="card">
+            <h2 class="section-title">5. 참고 자료</h2>
+            <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                <li>인터뷰 자료: 홍재나 (<a href="https://clovanote.naver.com/s/5UgXDasY8FkRM5YX4K4B7kS" target="_blank" class="text-[#4ECDC4] hover:underline">클로바노트 링크</a>)</li>
+                <li>인터뷰 자료: 이현민 (<a href="https://clovanote.naver.com/s/d9vVBSgx2xuPxMbWK2rDaRS" target="_blank" class="text-[#4ECDC4] hover:underline">클로바노트 링크</a>)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="text-center text-md text-[#A9A9A9] py-8">
+        <p>&copy; 2025 미림마이스터고 1학년 2반 3조. 모든 권리 보유.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Chart.js initialization and data handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to wrap long labels for Chart.js
+            function wrapLabel(label, maxCharsPerLine) {
+                if (typeof label !== 'string') return label;
+                const words = label.split(' ');
+                let currentLine = '';
+                let result = [];
+                for (let i = 0; i < words.length; i++) {
+                    const word = words[i];
+                    if ((currentLine + word).length > maxCharsPerLine && currentLine.length > 0) {
+                        result.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                }
+                result.push(currentLine.trim());
+                return result;
+            }
+
+            // Custom tooltip for Chart.js
+            const customTooltip = {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += context.parsed.y + '명 (' + context.raw + '%)';
+                        } else if (context.parsed !== null) { // For pie/doughnut charts
+                            label += context.formattedValue + '%';
+                        }
+                        return label;
+                    },
+                    title: function(context) {
+                        if (context[0] && context[0].label) {
+                            return context[0].label.replace(/,/g, ' '); // Remove commas from wrapped labels
+                        }
+                        return '';
+                    }
+                },
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                titleColor: '#FFFFFF',
+                bodyColor: '#FFFFFF',
+                borderColor: '#A9A9A9',
+                borderWidth: 1,
+                cornerRadius: 8,
+                displayColors: true,
+            };
+
+            // Data for Chart 1: AI에게 위로를 받아본 경험이 있나?
+            const dataExperience = {
+                labels: [
+                    '전혀 그렇지 않다',
+                    '그렇지 않다',
+                    '보통이다',
+                    '그렇다',
+                    '매우 그렇다'
+                ].map(label => wrapLabel(label, 10)), // Wrap labels for better display
+                datasets: [{
+                    label: '응답 비율',
+                    data: [17.6, 11.8, 29.4, 35.3, 5.9],
+                    backgroundColor: [
+                        '#A9A9A9', /* Accent Grey */
+                        '#A9A9A9', /* Accent Grey */
+                        '#4ECDC4', /* Secondary Teal */
+                        '#2A62B6', /* Primary Blue */
+                        '#2A62B6'  /* Primary Blue */
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1,
+                }]
+            };
+
+            const configExperience = {
+                type: 'pie', // Pie chart for single question with percentages
+                data: dataExperience,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: customTooltip
+                    }
+                }
+            };
+            new Chart(
+                document.getElementById('chartExperience'),
+                configExperience
+            );
+
+            // Data for Chart 2: AI에게 위로를 구하거나 도움을 받는 것을 고려해 볼 의향이 있나?
+            const dataWillingness = {
+                labels: [
+                    '전혀 그렇지 않다',
+                    '그렇지 않다',
+                    '보통이다',
+                    '그렇다',
+                    '매우 그렇다'
+                ].map(label => wrapLabel(label, 10)),
+                datasets: [{
+                    label: '응답 비율',
+                    data: [11.8, 47.1, 11.8, 23.5, 5.9],
+                    backgroundColor: [
+                        '#A9A9A9',
+                        '#A9A9A9',
+                        '#4ECDC4',
+                        '#2A62B6',
+                        '#2A62B6'
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1,
+                }]
+            };
+
+            const configWillingness = {
+                type: 'pie',
+                data: dataWillingness,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: customTooltip
+                    }
+                }
+            };
+            new Chart(
+                document.getElementById('chartWillingness'),
+                configWillingness
+            );
+
+            // Data for Chart 3: 힘들 때 사람 대신 AI에게 고민을 이야기하는 이유가 있다면 무엇인가?
+            // This is a multiple-choice question, so a bar chart showing counts is appropriate.
+            const dataReasons = {
+                labels: [
+                    '비밀을 지킬 수 있어서',
+                    '언제든 이야기할 수 있어서',
+                    '판단하거나 비난하지 않아서',
+                    '부담이 없어서',
+                    '그냥 호기심 때문에',
+                    '어떻게 해결해야 하는지 잘 알려줄 것 같다',
+                    '친구들의 시간을 뺏지 않아서'
+                ].map(label => wrapLabel(label, 16)), // Wrap labels for better display
+                datasets: [{
+                    label: '응답 수 (명)',
+                    data: [3, 7, 8, 11, 5, 1, 1],
+                    backgroundColor: '#2A62B6', /* Primary Blue */
+                    borderColor: '#2A62B6',
+                    borderWidth: 1,
+                }]
+            };
+
+            const configReasons = {
+                type: 'bar',
+                data: dataReasons,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y', // Horizontal bar chart for better label readability
+                    plugins: {
+                        legend: {
+                            display: false // No legend needed for single dataset bar chart
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) { // For horizontal bar chart, x-axis is value
+                                        label += context.parsed.x + '명';
+                                    }
+                                    return label;
+                                },
+                                title: function(context) {
+                                    if (context[0] && context[0].label) {
+                                        return context[0].label.replace(/,/g, ' '); // Remove commas from wrapped labels
+                                    }
+                                    return '';
+                                }
+                            },
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            titleColor: '#FFFFFF',
+                            bodyColor: '#FFFFFF',
+                            borderColor: '#A9A9A9',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            displayColors: true,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '응답자 수 (명)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                color: '#263238'
+                            },
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: false // Labels are self-explanatory
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            new Chart(
+                document.getElementById('chartReasons'),
+                configReasons
+            );
+        });
+    </script>
+    </body>
+</html>
